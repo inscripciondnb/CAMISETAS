@@ -11,6 +11,22 @@
 :root{--carbon:#16110E;--carbon2:#201914;--rojo:#C8272D;--rojoOsc:#8E1B20;--dorado:#D4A94E;--doradoSuave:#E6C77E;--crema:#F3EADB;--humo:#9A8D7E;--linea:rgba(212,169,78,.25);--ok:#4CAF7D;--err:#E05252}
 *{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% -10%,rgba(200,39,45,.18),transparent 55%),radial-gradient(ellipse at 90% 100%,rgba(212,169,78,.06),transparent 50%),var(--carbon);color:var(--crema);font-family:'Barlow',sans-serif}.shell{max-width:1180px;margin:auto;padding:0 16px 40px}.hero{padding:48px 20px 28px;text-align:center;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;left:-10%;right:-10%;top:22px;height:9px;background:var(--rojo);transform:rotate(-2deg)}.hero:after{content:"";position:absolute;left:-10%;right:-10%;top:38px;height:3px;background:var(--dorado);transform:rotate(-2deg)}.eyebrow{font-family:'Staatliches';color:var(--dorado);letter-spacing:.28em;font-size:.9rem;text-transform:uppercase}.hero h1{font-family:'Staatliches';font-weight:400;font-size:clamp(2.5rem,7vw,4.4rem);letter-spacing:.03em;line-height:.95;margin:12px 0 8px}.hero p{color:var(--humo);margin:0}.layout{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:start}.card{background:var(--carbon2);border:1px solid var(--linea);border-top:4px solid var(--rojo);margin-top:14px}.card-title{font-family:'Staatliches';font-size:1.2rem;letter-spacing:.12em;color:var(--dorado);padding:15px 18px;border-bottom:1px solid var(--linea);display:flex;align-items:center;gap:10px}.card-title:before{content:"";width:5px;height:24px;background:var(--rojo)}.card-body{padding:18px}.product-card{position:sticky;top:14px}.shirt{width:100%;display:block;background:#fff;border:1px solid var(--linea)}.product-caption{padding:12px 2px 0;color:var(--humo);font-size:.86rem}.size-ref{margin-top:18px;padding-top:16px;border-top:1px solid var(--linea)}.size-ref-title{font-family:'Staatliches';color:var(--dorado);letter-spacing:.08em;font-size:1.05rem;margin-bottom:10px}.size-ref img{width:100%;display:block;background:#fff;border:1px solid var(--linea)}.size-ref-note{color:var(--humo);font-size:.8rem;margin-top:8px;line-height:1.4}.g2{display:grid;grid-template-columns:1fr 1fr;gap:13px}.field{margin-bottom:13px}label{display:block;margin-bottom:6px;color:var(--humo);font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em}input,select{width:100%;border:1px solid var(--linea);background:var(--carbon);color:var(--crema);padding:12px;outline:none;border-radius:0;font-size:16px}input:focus,select:focus{border-color:var(--dorado)}.help{background:rgba(212,169,78,.06);border:1px solid var(--linea);border-left:4px solid var(--dorado);padding:11px 12px;color:var(--doradoSuave);font-size:.88rem;margin-bottom:14px}.qty-wrap{display:flex;align-items:center;gap:10px}.qty-wrap button{width:44px;height:44px;border:1px solid var(--linea);background:var(--carbon);color:var(--dorado);font-size:1.5rem;cursor:pointer}.qty-wrap input{text-align:center;max-width:110px}.shirts-list{display:grid;gap:10px;margin-top:14px}.shirt-row{border:1px solid var(--linea);background:var(--carbon);padding:12px;display:grid;grid-template-columns:48px 1fr 180px;gap:12px;align-items:center}.shirt-no{width:42px;height:42px;display:grid;place-items:center;background:var(--dorado);color:var(--carbon);font-family:'Staatliches';font-size:1.25rem}.shirt-row strong{font-size:.98rem}.shirt-row small{display:block;color:var(--humo);margin-top:3px}.summary{margin-top:14px;border:1px solid var(--linea);background:#120f0d;padding:14px;display:none}.summary.active{display:block}.summary-line{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px solid rgba(212,169,78,.12)}.summary-line:last-child{border-bottom:0}.total{font-family:'Staatliches';color:var(--dorado);font-size:1.25rem}.upload-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.upload-box{border:1px dashed var(--linea);background:var(--carbon);padding:16px;text-align:center}.upload-box input{margin-top:10px}.file-state{margin-top:8px;color:var(--humo);font-size:.82rem;word-break:break-word}.btn{width:100%;border:0;background:linear-gradient(160deg,var(--rojo),var(--rojoOsc));color:#fff;border-bottom:4px solid var(--dorado);font-family:'Staatliches';font-size:1.15rem;letter-spacing:.1em;padding:13px 16px;cursor:pointer}.btn:disabled{opacity:.55;cursor:not-allowed}.status{margin-top:12px;padding:12px;border:1px solid var(--linea);display:none}.status.ok{display:block;color:#a8e7c2;border-color:rgba(76,175,125,.35);background:rgba(76,175,125,.08)}.status.err{display:block;color:#ffb1b1;border-color:rgba(224,82,82,.35);background:rgba(224,82,82,.08)}.footer{text-align:center;color:var(--humo);font-size:.78rem;margin-top:18px}.required{color:#ff8b91}
 @media(max-width:900px){.layout{grid-template-columns:1fr}.product-card{position:static}.product-card .card-body{padding:10px}.shirt-row{grid-template-columns:46px 1fr 150px}}@media(max-width:620px){.g2,.upload-grid{grid-template-columns:1fr}.shirt-row{grid-template-columns:46px 1fr}.shirt-row select{grid-column:1/-1}.shell{padding:0 10px 30px}}
+
+.price-box{margin-top:14px;border:1px solid var(--linea);border-left:5px solid var(--dorado);background:var(--carbon3);padding:14px 16px}
+.price-title{font-family:'Staatliches';color:var(--dorado);letter-spacing:.08em;font-size:1.05rem;margin-bottom:8px}
+.price-values{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.price-value{border:1px solid var(--linea);padding:12px;background:var(--carbon)}
+.price-value span{display:block;color:var(--humo);font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+.price-value strong{display:block;color:var(--crema);font-family:'Staatliches';font-size:1.65rem;margin-top:3px}
+.bank-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.bank-box{border:1px solid var(--linea);background:var(--carbon3);padding:16px}
+.bank-box h3{font-family:'Staatliches';font-weight:400;color:var(--dorado);letter-spacing:.08em;margin:0 0 12px;font-size:1.2rem}
+.bank-row{margin-top:9px}
+.bank-row span{display:block;color:var(--humo);font-size:.74rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+.bank-row strong{display:block;color:var(--crema);font-size:1rem;margin-top:3px;word-break:break-word}
+.international-note{margin-top:14px;border:1px solid rgba(200,39,45,.5);border-left:5px solid var(--rojo);background:rgba(200,39,45,.08);padding:14px 16px;color:var(--crema)}
+.international-note strong{color:var(--doradoSuave)}
+@media(max-width:700px){.bank-grid,.price-values{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -38,8 +54,44 @@
         <div class="field"><label>Cantidad de camisetas <span class="required">*</span></label><div class="qty-wrap"><button type="button" id="minus">−</button><input id="cantidad" type="number" min="1" max="20" value="1" inputmode="numeric"><button type="button" id="plus">+</button></div></div>
         <div id="shirtsList" class="shirts-list"></div>
         <div id="summary" class="summary"></div>
+        <div class="price-box">
+          <div class="price-title">Importe total del pedido</div>
+          <div class="price-values">
+            <div class="price-value"><span>Pesos uruguayos</span><strong id="priceUYU">$ 480</strong></div>
+            <div class="price-value"><span>Dólares estadounidenses</span><strong id="priceUSD">USD 12</strong></div>
+          </div>
+          <div class="help" style="margin-top:10px">Precio por camiseta: <strong>$ 480 UYU</strong> o su equivalente fijo de <strong>USD 12</strong>.</div>
+        </div>
       </div></section>
-      <section class="card"><div class="card-title">3 · Comprobante de pago</div><div class="card-body"><div class="help"><strong>Obligatorio:</strong> adjuntá el comprobante de pago para poder enviar el pedido.</div><div class="upload-grid"><div class="upload-box"><strong>Adjuntar archivo</strong><div style="color:var(--humo);font-size:.82rem;margin-top:5px">PDF, JPG, PNG o WEBP · máximo 8 MB</div><input id="comprobante" type="file" accept="application/pdf,image/jpeg,image/png,image/webp" required><div id="fileState" class="file-state">Sin archivo seleccionado</div></div></div></div></section>
+      <section class="card">
+        <div class="card-title">3 · Datos para transferencia</div>
+        <div class="card-body">
+          <div class="help">Las cuentas están a nombre de <strong>CARLOS DIEGO GIMÉNEZ MARRERO</strong>.</div>
+          <div class="bank-grid">
+            <div class="bank-box">
+              <h3>Cuenta en pesos uruguayos</h3>
+              <div class="bank-row"><span>Titular</span><strong>CARLOS DIEGO GIMÉNEZ MARRERO</strong></div>
+              <div class="bank-row"><span>Moneda</span><strong>Pesos uruguayos (UYU)</strong></div>
+              <div class="bank-row"><span>Número de cuenta</span><strong>001129858-00001</strong></div>
+              <div class="bank-row"><span>Número completo para transferencia</span><strong>00112985800001</strong></div>
+            </div>
+            <div class="bank-box">
+              <h3>Cuenta en dólares</h3>
+              <div class="bank-row"><span>Titular</span><strong>CARLOS DIEGO GIMÉNEZ MARRERO</strong></div>
+              <div class="bank-row"><span>Moneda</span><strong>Dólares estadounidenses (USD)</strong></div>
+              <div class="bank-row"><span>Número de cuenta</span><strong>CA 001129858-00002</strong></div>
+              <div class="bank-row"><span>Número completo para transferencia</span><strong>00112985800002</strong></div>
+            </div>
+          </div>
+          <div class="international-note">
+            <strong>Transferencias recibidas desde el exterior:</strong> el monto mínimo es de <strong>USD 100</strong>.
+            Al realizar la transferencia a la cuenta BROU, el remitente deberá proporcionar el
+            <strong>número completo de cuenta de 14 dígitos</strong>, sin puntos, guiones ni espacios,
+            y el código <strong>SWIFT: BROUUYMM</strong>.
+          </div>
+        </div>
+      </section>
+      <section class="card"><div class="card-title">4 · Comprobante de pago</div><div class="card-body"><div class="help"><strong>Obligatorio:</strong> adjuntá el comprobante de pago para poder enviar el pedido.</div><div class="upload-grid"><div class="upload-box"><strong>Adjuntar archivo</strong><div style="color:var(--humo);font-size:.82rem;margin-top:5px">PDF, JPG, PNG o WEBP · máximo 8 MB</div><input id="comprobante" type="file" accept="application/pdf,image/jpeg,image/png,image/webp" required><div id="fileState" class="file-state">Sin archivo seleccionado</div></div></div></div></section>
       <section class="card"><div class="card-body"><button id="submitBtn" class="btn" type="submit">Enviar pedido</button><div id="status" class="status"></div></div></section>
     </form>
   </main>
@@ -52,7 +104,16 @@ const $=id=>document.getElementById(id);
 let shirtSizes=['M'];
 function clampQty(v){return Math.max(1,Math.min(20,Number(v)||1))}
 function renderShirts(){const n=clampQty($('cantidad').value);$('cantidad').value=n;while(shirtSizes.length<n)shirtSizes.push('M');shirtSizes=shirtSizes.slice(0,n);$('shirtsList').innerHTML=shirtSizes.map((t,i)=>`<div class="shirt-row"><div class="shirt-no">${i+1}</div><div><strong>Camiseta ${i+1}</strong><small>Seleccioná el talle</small></div><select class="shirt-size" data-i="${i}" aria-label="Talle de camiseta ${i+1}">${TALLES.map(x=>`<option ${x===t?'selected':''}>${x}</option>`).join('')}</select></div>`).join('');document.querySelectorAll('.shirt-size').forEach(s=>s.addEventListener('change',e=>{shirtSizes[+e.target.dataset.i]=e.target.value;renderSummary()}));renderSummary()}
-function renderSummary(){const counts={};shirtSizes.forEach(t=>counts[t]=(counts[t]||0)+1);const sum=$('summary');sum.className='summary active';sum.innerHTML=Object.entries(counts).map(([t,c])=>`<div class="summary-line"><span>Talle ${t}</span><strong>${c}</strong></div>`).join('')+`<div class="summary-line total"><span>Total</span><strong>${shirtSizes.length}</strong></div>`}
+function renderSummary(){
+  const counts={};
+  shirtSizes.forEach(t=>counts[t]=(counts[t]||0)+1);
+  const sum=$('summary');
+  sum.className='summary active';
+  sum.innerHTML=Object.entries(counts).map(([t,c])=>`<div class="summary-line"><span>Talle ${t}</span><strong>${c}</strong></div>`).join('')+`<div class="summary-line total"><span>Total</span><strong>${shirtSizes.length}</strong></div>`;
+  const qty=shirtSizes.length;
+  $('priceUYU').textContent='$ '+(qty*480).toLocaleString('es-UY');
+  $('priceUSD').textContent='USD '+(qty*12).toLocaleString('es-UY');
+}
 $('minus').onclick=()=>{$('cantidad').value=clampQty(+$('cantidad').value-1);renderShirts()};$('plus').onclick=()=>{$('cantidad').value=clampQty(+$('cantidad').value+1);renderShirts()};$('cantidad').addEventListener('input',renderShirts);
 function pickFile(){return $('comprobante').files[0]||null}function validateFile(f){if(!f)return 'Adjuntá el comprobante de pago.';if(f.size>MAX_MB*1024*1024)return `El archivo supera ${MAX_MB} MB.`;const ok=['application/pdf','image/jpeg','image/png','image/webp'];if(!ok.includes(f.type))return 'Formato no permitido. Usá PDF, JPG, PNG o WEBP.';return ''}function toBase64(file){return new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(String(r.result).split(',')[1]);r.onerror=reject;r.readAsDataURL(file)})}
 $('comprobante').addEventListener('change',()=>{$('fileState').textContent=$('comprobante').files[0]?.name||'Sin archivo seleccionado'});
