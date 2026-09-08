@@ -20,7 +20,7 @@
 <div class="card-title">Pedidos recibidos</div>
 <div class="card-body">
 <div class="toolbar">
-<input id="search" type="search" placeholder="Buscar por nombre, apellido o código">
+<input id="search" type="search" placeholder="Buscar por nombre o apellido">
 <button id="refreshBtn" class="btn btn-outline" type="button">Actualizar</button>
 <button id="excelBtn" class="btn" type="button">Descargar Excel</button>
 </div>
@@ -29,7 +29,7 @@
 <div id="panelStatus" class="status"></div>
 <div class="table-wrap">
 <table>
-<thead><tr><th>Fecha</th><th>Código</th><th>Nombre</th><th>Talles</th><th>Total</th><th>Estado</th><th>Comprobante</th><th>Carpeta</th><th>Eliminar</th></tr></thead>
+<thead><tr><th>Fecha</th><th>Nombre</th><th>Talles</th><th>Total</th><th>Estado</th><th>Comprobante</th><th>Carpeta</th><th>Eliminar</th></tr></thead>
 <tbody id="tbody"></tbody>
 </table>
 <div id="empty" class="empty" style="display:none">No hay pedidos para mostrar.</div>
@@ -75,7 +75,7 @@ async function loadPedidos(){
 
 function render(){
   const q=$('search').value.trim().toLowerCase();
-  const rows=pedidos.filter(r=>`${r.codigo||''} ${r.nombre||''} ${r.apellido||''}`.toLowerCase().includes(q));
+  const rows=pedidos.filter(r=>`${r.nombre||''} ${r.apellido||''}`.toLowerCase().includes(q));
   const totalPedidos=pedidos.length;
   const totalCamisetas=pedidos.reduce((s,r)=>s+Number(r.total||0),0);
   const talles={};
@@ -91,22 +91,21 @@ function render(){
   $('tbody').innerHTML=rows.map(r=>`
   <tr>
     <td>${esc(r.fecha)}</td>
-    <td class="code">${esc(r.codigo)}</td>
     <td><strong>${esc(r.nombre)} ${esc(r.apellido)}</strong></td>
     <td>${(r.items||[]).map(i=>`<span class="tag">${esc(i.talle)} × ${Number(i.cantidad||0)}</span>`).join('')||'—'}</td>
     <td><strong>${Number(r.total||0)}</strong></td>
     <td>
       <div class="status-edit">
-        <select class="status-select" id="estado-${esc(r.codigo)}">
+        <select class="status-select" id="estado-${esc(r.registroId)}">
           <option value="PENDIENTE" ${(r.estado||'PENDIENTE')==='PENDIENTE'?'selected':''}>PENDIENTE</option>
           <option value="VERIFICADO" ${(r.estado||'')==='VERIFICADO'?'selected':''}>VERIFICADO</option>
         </select>
-        <button class="btn btn-save" type="button" onclick="guardarEstado('${esc(r.codigo)}')">Guardar</button>
+        <button class="btn btn-save" type="button" onclick="guardarEstado('${esc(r.registroId)}')">Guardar</button>
       </div>
     </td>
     <td>${r.comprobanteUrl?`<a href="${esc(r.comprobanteUrl)}" target="_blank" rel="noopener">Ver comprobante</a>`:'—'}</td>
     <td>${r.carpetaUrl?`<a href="${esc(r.carpetaUrl)}" target="_blank" rel="noopener">Abrir carpeta</a>`:'—'}</td>
-    <td><button class="btn btn-danger" type="button" onclick="eliminarPedido('${esc(r.codigo)}','${esc((r.nombre||'')+' '+(r.apellido||''))}')">Eliminar</button></td>
+    <td><button class="btn btn-danger" type="button" onclick="eliminarPedido('${esc(r.registroId)}','${esc((r.nombre||'')+' '+(r.apellido||''))}')">Eliminar</button></td>
   </tr>`).join('');
 
   $('empty').style.display=rows.length?'none':'block';
@@ -150,27 +149,27 @@ async function descargarExcel(){
 
 
 
-async function guardarEstado(codigo){
-  const select=$('estado-'+codigo);
+async function guardarEstado(registroId){
+  const select=$('estado-'+registroId);
   if(!select)return;
 
   const estado=select.value;
-  const pedido=pedidos.find(p=>p.codigo===codigo);
+  const pedido=pedidos.find(p=>p.registroId===registroId);
   const anterior=pedido?.estado||'PENDIENTE';
 
   select.disabled=true;
-  setStatus('panelStatus',`Actualizando ${codigo} a ${estado}...`,'info');
+  setStatus('panelStatus',`Actualizando estado...`,'info');
 
   try{
     await post({
       accion:'actualizar_estado',
-      codigo,
+      registroId,
       estado
     });
 
     if(pedido)pedido.estado=estado;
     render();
-    setStatus('panelStatus',`Estado de ${codigo} actualizado a ${estado}.`,'ok');
+    setStatus('panelStatus',`Estado actualizado a ${estado}.`,'ok');
   }catch(err){
     if(pedido)pedido.estado=anterior;
     select.disabled=false;
@@ -178,9 +177,11 @@ async function guardarEstado(codigo){
   }
 }
 
-async function eliminarPedido(codigo,nombre){
+async function eliminarPedido(registroId,nombre){
   const confirmar=confirm(
-    `¿Eliminar el pedido ${codigo} de ${nombre}?\n\n` +
+    `¿Eliminar el pedido de ${nombre}?
+
+` +
     'Se eliminará el registro de la planilla, la carpeta del pedido en Google Drive ' +
     'y se actualizará el Excel.'
   );
@@ -190,8 +191,8 @@ async function eliminarPedido(codigo,nombre){
   setStatus('panelStatus','Eliminando pedido...','info');
 
   try{
-    await post({accion:'eliminar_pedido',codigo});
-    pedidos=pedidos.filter(p=>p.codigo!==codigo);
+    await post({accion:'eliminar_pedido',registroId});
+    pedidos=pedidos.filter(p=>p.registroId!==registroId);
     render();
     setStatus('panelStatus','Pedido eliminado correctamente.','ok');
   }catch(err){
