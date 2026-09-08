@@ -39,17 +39,21 @@
         <div id="shirtsList" class="shirts-list"></div>
         <div id="summary" class="summary"></div>
       </div></section>
-      <section class="card"><div class="card-title">3 · Comprobante de pago</div><div class="card-body"><div class="help">Podés subir un PDF o una imagen, o sacar la foto directamente desde el celular.</div><div class="upload-grid"><div class="upload-box"><strong>Adjuntar archivo</strong><div style="color:var(--humo);font-size:.82rem;margin-top:5px">PDF, JPG, PNG o WEBP</div><input id="comprobante" type="file" accept="application/pdf,image/jpeg,image/png,image/webp" required><div id="fileState" class="file-state">Sin archivo seleccionado</div></div><div class="upload-box"><strong>Sacar foto</strong><div style="color:var(--humo);font-size:.82rem;margin-top:5px">Usa la cámara trasera en celulares compatibles</div><input id="foto" type="file" accept="image/*" capture="environment" required><div id="photoState" class="file-state">Sin foto tomada</div></div></div></div></section>
+      <section class="card"><div class="card-title">3 · Comprobante de pago</div><div class="card-body"><div class="help">Obligatorio: elegí una de las dos opciones. Podés adjuntar un PDF/imagen O sacar una foto directamente desde el celular.</div><div class="upload-grid"><div class="upload-box"><strong>Adjuntar archivo</strong><div style="color:var(--humo);font-size:.82rem;margin-top:5px">PDF, JPG, PNG o WEBP</div><input id="comprobante" type="file" accept="application/pdf,image/jpeg,image/png,image/webp"><div id="fileState" class="file-state">Sin archivo seleccionado</div></div><div class="upload-box"><strong>Sacar foto</strong><div style="color:var(--humo);font-size:.82rem;margin-top:5px">Usa la cámara trasera en celulares compatibles</div><input id="foto" type="file" accept="image/*" capture="environment"><div id="photoState" class="file-state">Sin foto tomada</div></div></div></div></section>
       <section class="card"><div class="card-body"><button id="submitBtn" class="btn" type="submit">Enviar pedido</button><div id="status" class="status"></div></div></section>
     </form>
   </main>
 </div><div class="footer">Copa Integración · Bomberos Uruguay · 2026</div></div>
 <script>
 function validarComprobanteObligatorio(){
-  const input=document.querySelector('input[type="file"]');
-  if(!input || !input.files || input.files.length===0){
-    alert('Debés adjuntar el comprobante o sacar una foto antes de enviar el pedido.');
-    if(input) input.focus();
+  const archivo=document.getElementById('comprobante');
+  const foto=document.getElementById('foto');
+  const tieneArchivo=archivo && archivo.files && archivo.files.length>0;
+  const tieneFoto=foto && foto.files && foto.files.length>0;
+
+  if(!tieneArchivo && !tieneFoto){
+    alert('Para enviar el pedido debés adjuntar un archivo O sacar una foto del comprobante.');
+    if(archivo) archivo.focus();
     return false;
   }
   return true;
