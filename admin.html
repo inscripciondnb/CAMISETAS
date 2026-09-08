@@ -1,17 +1,119 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Administración · Camisetas</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Staatliches&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Administración · Camisetas Copa Integración</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Staatliches&display=swap" rel="stylesheet">
 <style>
-:root{--c:#16110E;--c2:#201914;--r:#C8272D;--ro:#8E1B20;--g:#D4A94E;--gs:#E6C77E;--t:#F3EADB;--m:#9A8D7E;--l:rgba(212,169,78,.25)}*{box-sizing:border-box}body{margin:0;background:var(--c);color:var(--t);font-family:Barlow,sans-serif}.shell{max-width:1180px;margin:auto;padding:22px}.hero{border-top:8px solid var(--r);border-bottom:3px solid var(--g);padding:25px 0}.hero h1{font-family:Staatliches;font-weight:400;font-size:2.5rem;margin:0}.hero p{color:var(--m);margin:4px 0 0}.card{margin-top:18px;background:var(--c2);border:1px solid var(--l);border-top:4px solid var(--r);padding:16px}.controls{display:grid;grid-template-columns:1fr auto;gap:10px}input{background:var(--c);border:1px solid var(--l);color:var(--t);padding:11px}.btn{border:0;background:linear-gradient(160deg,var(--r),var(--ro));border-bottom:3px solid var(--g);color:#fff;padding:11px 18px;font-family:Staatliches;font-size:1rem;letter-spacing:.08em;cursor:pointer}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}.stat{border:1px solid var(--l);background:var(--c);padding:12px}.stat strong{font-family:Staatliches;color:var(--gs);font-size:1.7rem;display:block}.tablewrap{overflow:auto;margin-top:14px}table{width:100%;border-collapse:collapse;min-width:900px}th{background:var(--c);color:var(--gs);text-transform:uppercase;font-size:.75rem;padding:10px;border-bottom:2px solid var(--g);text-align:left}td{padding:10px;border-bottom:1px solid var(--l);font-size:.9rem;vertical-align:top}a{color:var(--gs)}.tag{display:inline-block;border:1px solid var(--l);padding:3px 6px;margin:2px;color:var(--gs)}.muted{color:var(--m)}@media(max-width:700px){.controls{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.shell{padding:10px}}
+:root{--carbon:#16110E;--carbon2:#201914;--carbon3:#120f0d;--rojo:#C8272D;--rojoOsc:#8E1B20;--dorado:#D4A94E;--doradoSuave:#E6C77E;--crema:#F3EADB;--humo:#9A8D7E;--linea:rgba(212,169,78,.25);--ok:#4CAF7D;--err:#E05252}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% -10%,rgba(200,39,45,.18),transparent 55%),radial-gradient(ellipse at 90% 100%,rgba(212,169,78,.06),transparent 50%),var(--carbon);color:var(--crema);font-family:'Barlow',sans-serif}.shell{max-width:1240px;margin:auto;padding:0 16px 40px}.hero{padding:48px 20px 28px;text-align:center;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;left:-10%;right:-10%;top:22px;height:9px;background:var(--rojo);transform:rotate(-2deg)}.hero:after{content:"";position:absolute;left:-10%;right:-10%;top:38px;height:3px;background:var(--dorado);transform:rotate(-2deg)}.eyebrow{font-family:'Staatliches';color:var(--dorado);letter-spacing:.28em;font-size:.9rem;text-transform:uppercase}.hero h1{font-family:'Staatliches';font-weight:400;font-size:clamp(2.4rem,7vw,4.2rem);letter-spacing:.03em;line-height:.95;margin:12px 0 8px}.hero p{color:var(--humo);margin:0}.card{background:var(--carbon2);border:1px solid var(--linea);border-top:4px solid var(--rojo);margin-top:14px}.card-title{font-family:'Staatliches';font-size:1.18rem;letter-spacing:.12em;color:var(--dorado);padding:15px 18px;border-bottom:1px solid var(--linea);display:flex;align-items:center;gap:10px}.card-title:before{content:"";width:5px;height:24px;background:var(--rojo)}.card-body{padding:18px}.login-wrap{max-width:520px;margin:30px auto 0}.login-note{color:var(--humo);font-size:.9rem;margin-bottom:14px}.field{margin-bottom:13px}label{display:block;margin-bottom:6px;color:var(--humo);font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em}input{width:100%;border:1px solid var(--linea);background:var(--carbon);color:var(--crema);padding:12px;outline:none;border-radius:0;font-size:16px}input:focus{border-color:var(--dorado)}.btn{border:0;background:linear-gradient(160deg,var(--rojo),var(--rojoOsc));color:#fff;border-bottom:4px solid var(--dorado);font-family:'Staatliches';font-size:1.08rem;letter-spacing:.1em;padding:12px 16px;cursor:pointer}.btn:disabled{opacity:.55;cursor:not-allowed}.btn-outline{background:var(--carbon);border:1px solid var(--linea);border-bottom:1px solid var(--linea);color:var(--doradoSuave)}.actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.actions .btn{width:auto}.status{margin-top:12px;padding:12px;border:1px solid var(--linea);display:none}.status.ok{display:block;color:#a8e7c2;border-color:rgba(76,175,125,.35);background:rgba(76,175,125,.08)}.status.err{display:block;color:#ffb1b1;border-color:rgba(224,82,82,.35);background:rgba(224,82,82,.08)}.panel{display:none}.panel.active{display:block}.toolbar{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:center}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}.stat{border:1px solid var(--linea);background:var(--carbon);padding:14px}.stat strong{font-family:'Staatliches';color:var(--doradoSuave);font-size:1.8rem;display:block;line-height:1}.stat span{display:block;color:var(--humo);font-size:.78rem;margin-top:6px;text-transform:uppercase;font-weight:800;letter-spacing:.05em}.table-wrap{overflow:auto;margin-top:14px;border:1px solid var(--linea)}table{width:100%;border-collapse:collapse;min-width:940px}th{background:var(--carbon);color:var(--doradoSuave);text-transform:uppercase;font-size:.72rem;padding:11px;border-bottom:2px solid var(--dorado);text-align:left}td{padding:11px;border-bottom:1px solid var(--linea);font-size:.9rem;vertical-align:top}tr:hover td{background:rgba(212,169,78,.025)}a{color:var(--doradoSuave);font-weight:700}.tag{display:inline-block;border:1px solid var(--linea);padding:4px 7px;margin:2px 3px 2px 0;color:var(--doradoSuave);background:var(--carbon3);font-size:.8rem}.code{font-family:monospace;color:var(--doradoSuave)}.empty{text-align:center;color:var(--humo);padding:28px}.session{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:14px;color:var(--humo);font-size:.84rem}.footer{text-align:center;color:var(--humo);font-size:.78rem;margin-top:18px}@media(max-width:800px){.toolbar{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.actions .btn{width:100%}.session{align-items:flex-start;flex-direction:column}}@media(max-width:500px){.stats{grid-template-columns:1fr}.shell{padding:0 10px 30px}}
 </style>
 </head>
-<body><div class="shell"><div class="hero"><h1>Pedidos de camisetas</h1><p>Copa Integración · Panel administrativo</p></div>
-<div class="card"><div class="controls"><input id="key" type="password" placeholder="Clave de administrador"><button id="load" class="btn">Cargar pedidos</button></div><div id="stats" class="stats" style="display:none"></div><div id="msg" class="muted" style="margin-top:10px"></div><div class="tablewrap"><table id="table" style="display:none"><thead><tr><th>Fecha</th><th>Código</th><th>Nombre</th><th>Pedido</th><th>Total</th><th>Comprobante</th></tr></thead><tbody></tbody></table></div></div></div>
+<body>
+<div class="shell">
+  <header class="hero"><div class="eyebrow">Dirección Nacional de Bomberos</div><h1>Panel de administración</h1><p>Pedidos de camisetas · Copa Integración 2026</p></header>
+
+  <section id="loginView" class="login-wrap card">
+    <div class="card-title">Acceso restringido</div>
+    <div class="card-body">
+      <div class="login-note">Ingresá la contraseña de administrador. La contraseña no queda guardada en este archivo ni se envía en la URL.</div>
+      <form id="loginForm">
+        <div class="field"><label>Contraseña</label><input id="password" type="password" autocomplete="current-password" required autofocus></div>
+        <button id="loginBtn" class="btn" type="submit" style="width:100%">Ingresar al panel</button>
+      </form>
+      <div id="loginStatus" class="status"></div>
+    </div>
+  </section>
+
+  <section id="adminPanel" class="panel">
+    <div class="card">
+      <div class="card-title">Pedidos recibidos</div>
+      <div class="card-body">
+        <div class="toolbar">
+          <input id="search" type="search" placeholder="Buscar por nombre, apellido o código">
+          <button id="refreshBtn" class="btn btn-outline" type="button">Actualizar</button>
+          <button id="logoutBtn" class="btn btn-outline" type="button">Cerrar sesión</button>
+        </div>
+        <div class="session"><span id="sessionInfo">Sesión iniciada</span><span id="lastUpdate">—</span></div>
+        <div id="stats" class="stats"></div>
+        <div id="panelStatus" class="status"></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Fecha</th><th>Código</th><th>Nombre</th><th>Talles</th><th>Total</th><th>Comprobante</th></tr></thead>
+            <tbody id="tbody"></tbody>
+          </table>
+          <div id="empty" class="empty" style="display:none">No hay pedidos para mostrar.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="footer">Copa Integración · Bomberos Uruguay · 2026</div>
+</div>
 <script>
-const API_URL='PEGAR_AQUI_URL_APPS_SCRIPT';const $=id=>document.getElementById(id);
-$('load').onclick=async()=>{const key=$('key').value.trim();if(!key){$('msg').textContent='Ingresá la clave de administrador.';return}if(API_URL.includes('PEGAR_AQUI')){$('msg').textContent='Falta configurar la URL de Apps Script.';return}$('msg').textContent='Cargando...';try{const u=new URL(API_URL);u.searchParams.set('accion','listar_pedidos');u.searchParams.set('key',key);const r=await fetch(u,{cache:'no-store'});const d=await r.json();if(!d.ok)throw new Error(d.error||'Error');render(d.pedidos||[])}catch(e){$('msg').textContent=e.message}}
-function render(rows){$('msg').textContent=rows.length?`${rows.length} pedidos cargados.`:'No hay pedidos.';const total=rows.reduce((s,r)=>s+Number(r.total||0),0);const talles={};rows.forEach(r=>(r.items||[]).forEach(i=>talles[i.talle]=(talles[i.talle]||0)+Number(i.cantidad||0)));$('stats').style.display='grid';$('stats').innerHTML=`<div class="stat"><strong>${rows.length}</strong><span>Pedidos</span></div><div class="stat"><strong>${total}</strong><span>Camisetas</span></div><div class="stat"><strong>${Object.keys(talles).length}</strong><span>Talles utilizados</span></div><div class="stat"><strong>${Object.entries(talles).sort((a,b)=>b[1]-a[1])[0]?.[0]||'—'}</strong><span>Talle más pedido</span></div>`;const tb=$('table').querySelector('tbody');tb.innerHTML=rows.map(r=>`<tr><td>${esc(r.fecha||'')}</td><td>${esc(r.codigo||'')}</td><td><strong>${esc(r.nombre||'')} ${esc(r.apellido||'')}</strong></td><td>${(r.items||[]).map(i=>`<span class="tag">${esc(i.talle)} × ${Number(i.cantidad||0)}</span>`).join('')}</td><td>${Number(r.total||0)}</td><td>${r.comprobanteUrl?`<a href="${r.comprobanteUrl}" target="_blank" rel="noopener">Ver comprobante</a>`:'—'}</td></tr>`).join('');$('table').style.display='table'}
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
-</script></body></html>
+const API_URL='https://script.google.com/macros/s/AKfycbxNysvsbtNSRre1o90TBpmYwoMz7pXsxuZmwp95Qc1cFoLkjFlVQWtBdtVVXZJw-vxyNQ/exec';
+const $=id=>document.getElementById(id);
+let pedidos=[];
+let token=sessionStorage.getItem('ci_admin_token')||'';
+
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
+function setStatus(id,msg,type=''){const el=$(id);el.className='status'+(type?' '+type:'');el.textContent=msg||''}
+function apiReady(){return API_URL && !API_URL.includes('PEGAR_AQUI')}
+async function post(payload){const r=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload),cache:'no-store'});const d=await r.json();if(!d.ok)throw new Error(d.error||'Error del servidor');return d}
+
+$('loginForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  if(!apiReady()){setStatus('loginStatus','Falta configurar la URL de Apps Script en admin.html.','err');return}
+  const password=$('password').value;
+  if(!password){setStatus('loginStatus','Ingresá la contraseña.','err');return}
+  const b=$('loginBtn');b.disabled=true;b.textContent='INGRESANDO...';setStatus('loginStatus','');
+  try{
+    const d=await post({accion:'admin_login',password});
+    token=d.token;
+    sessionStorage.setItem('ci_admin_token',token);
+    $('password').value='';
+    showPanel();
+    await loadPedidos();
+  }catch(err){setStatus('loginStatus',err.message,'err')}
+  finally{b.disabled=false;b.textContent='INGRESAR AL PANEL'}
+});
+
+async function loadPedidos(){
+  if(!token)return showLogin();
+  setStatus('panelStatus','Cargando pedidos...');
+  try{
+    const d=await post({accion:'listar_pedidos',token});
+    pedidos=Array.isArray(d.pedidos)?d.pedidos:[];
+    render();
+    setStatus('panelStatus','');
+    $('lastUpdate').textContent='Actualizado: '+new Date().toLocaleString('es-UY');
+  }catch(err){
+    if(/sesión|token|autoriz/i.test(err.message)){sessionStorage.removeItem('ci_admin_token');token='';showLogin();setStatus('loginStatus','La sesión venció. Ingresá nuevamente.','err')}
+    else setStatus('panelStatus',err.message,'err');
+  }
+}
+
+function render(){
+  const q=$('search').value.trim().toLowerCase();
+  const rows=pedidos.filter(r=>`${r.codigo||''} ${r.nombre||''} ${r.apellido||''}`.toLowerCase().includes(q));
+  const totalPedidos=pedidos.length;
+  const totalCamisetas=pedidos.reduce((s,r)=>s+Number(r.total||0),0);
+  const talles={};pedidos.forEach(r=>(r.items||[]).forEach(i=>{talles[i.talle]=(talles[i.talle]||0)+Number(i.cantidad||0)}));
+  const top=Object.entries(talles).sort((a,b)=>b[1]-a[1])[0];
+  $('stats').innerHTML=`<div class="stat"><strong>${totalPedidos}</strong><span>Pedidos</span></div><div class="stat"><strong>${totalCamisetas}</strong><span>Camisetas</span></div><div class="stat"><strong>${Object.keys(talles).length}</strong><span>Talles usados</span></div><div class="stat"><strong>${top?esc(top[0])+' · '+top[1]:'—'}</strong><span>Talle más pedido</span></div>`;
+  $('tbody').innerHTML=rows.map(r=>`<tr><td>${esc(r.fecha)}</td><td class="code">${esc(r.codigo)}</td><td><strong>${esc(r.nombre)} ${esc(r.apellido)}</strong></td><td>${(r.items||[]).map(i=>`<span class="tag">${esc(i.talle)} × ${Number(i.cantidad||0)}</span>`).join('')||'—'}</td><td><strong>${Number(r.total||0)}</strong></td><td>${r.comprobanteUrl?`<a href="${esc(r.comprobanteUrl)}" target="_blank" rel="noopener">Ver comprobante</a>`:'—'}</td></tr>`).join('');
+  $('empty').style.display=rows.length?'none':'block';
+}
+
+function showPanel(){$('loginView').style.display='none';$('adminPanel').classList.add('active')}
+function showLogin(){$('loginView').style.display='block';$('adminPanel').classList.remove('active')}
+$('search').addEventListener('input',render);
+$('refreshBtn').addEventListener('click',loadPedidos);
+$('logoutBtn').addEventListener('click',async()=>{try{if(token&&apiReady())await post({accion:'admin_logout',token})}catch(_){}sessionStorage.removeItem('ci_admin_token');token='';pedidos=[];showLogin();setStatus('loginStatus','Sesión cerrada.','ok')});
+
+(async()=>{if(token&&apiReady()){showPanel();await loadPedidos()}else showLogin()})();
+</script>
+</body>
+</html>
