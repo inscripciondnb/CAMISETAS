@@ -9,34 +9,101 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Staatliches&display=swap" rel="stylesheet">
 <style>
 :root{--carbon:#16110E;--carbon2:#201914;--carbon3:#120f0d;--rojo:#C8272D;--rojoOsc:#8E1B20;--dorado:#D4A94E;--doradoSuave:#E6C77E;--crema:#F3EADB;--humo:#9A8D7E;--linea:rgba(212,169,78,.25);--ok:#4CAF7D;--err:#E05252}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% -10%,rgba(200,39,45,.18),transparent 55%),radial-gradient(ellipse at 90% 100%,rgba(212,169,78,.06),transparent 50%),var(--carbon);color:var(--crema);font-family:'Barlow',sans-serif}.shell{max-width:1240px;margin:auto;padding:0 16px 40px}.hero{padding:48px 20px 28px;text-align:center;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;left:-10%;right:-10%;top:22px;height:9px;background:var(--rojo);transform:rotate(-2deg)}.hero:after{content:"";position:absolute;left:-10%;right:-10%;top:38px;height:3px;background:var(--dorado);transform:rotate(-2deg)}.eyebrow{font-family:'Staatliches';color:var(--dorado);letter-spacing:.28em;font-size:.9rem;text-transform:uppercase}.hero h1{font-family:'Staatliches';font-weight:400;font-size:clamp(2.4rem,7vw,4.2rem);letter-spacing:.03em;line-height:.95;margin:12px 0 8px}.hero p{color:var(--humo);margin:0}.card{background:var(--carbon2);border:1px solid var(--linea);border-top:4px solid var(--rojo);margin-top:14px}.card-title{font-family:'Staatliches';font-size:1.18rem;letter-spacing:.12em;color:var(--dorado);padding:15px 18px;border-bottom:1px solid var(--linea);display:flex;align-items:center;gap:10px}.card-title:before{content:"";width:5px;height:24px;background:var(--rojo)}.card-body{padding:18px}.login-wrap{max-width:520px;margin:30px auto 0}.login-note{color:var(--humo);font-size:.9rem;margin-bottom:14px}.field{margin-bottom:13px}label{display:block;margin-bottom:6px;color:var(--humo);font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em}input{width:100%;border:1px solid var(--linea);background:var(--carbon);color:var(--crema);padding:12px;outline:none;border-radius:0;font-size:16px}input:focus{border-color:var(--dorado)}.btn{border:0;background:linear-gradient(160deg,var(--rojo),var(--rojoOsc));color:#fff;border-bottom:4px solid var(--dorado);font-family:'Staatliches';font-size:1.08rem;letter-spacing:.1em;padding:12px 16px;cursor:pointer}.btn:disabled{opacity:.55;cursor:not-allowed}.btn-outline{background:var(--carbon);border:1px solid var(--linea);border-bottom:1px solid var(--linea);color:var(--doradoSuave)}.toolbar{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:center}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}.stat{border:1px solid var(--linea);background:var(--carbon);padding:14px}.stat strong{font-family:'Staatliches';color:var(--doradoSuave);font-size:1.8rem;display:block;line-height:1}.stat span{display:block;color:var(--humo);font-size:.78rem;margin-top:6px;text-transform:uppercase;font-weight:800;letter-spacing:.05em}.table-wrap{overflow:auto;margin-top:14px;border:1px solid var(--linea)}table{width:100%;border-collapse:collapse;min-width:1000px}th{background:var(--carbon);color:var(--doradoSuave);text-transform:uppercase;font-size:.72rem;padding:11px;border-bottom:2px solid var(--dorado);text-align:left}td{padding:11px;border-bottom:1px solid var(--linea);font-size:.9rem;vertical-align:top}tr:hover td{background:rgba(212,169,78,.025)}a{color:var(--doradoSuave);font-weight:700}.tag{display:inline-block;border:1px solid var(--linea);padding:4px 7px;margin:2px 3px 2px 0;color:var(--doradoSuave);background:var(--carbon3);font-size:.8rem}.code{font-family:monospace;color:var(--doradoSuave)}.empty{text-align:center;color:var(--humo);padding:28px}.session{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:14px;color:var(--humo);font-size:.84rem}.status{margin-top:12px;padding:12px;border:1px solid var(--linea);display:none}.status.ok{display:block;color:#a8e7c2;border-color:rgba(76,175,125,.35);background:rgba(76,175,125,.08)}.status.err{display:block;color:#ffb1b1;border-color:rgba(224,82,82,.35);background:rgba(224,82,82,.08)}.panel{display:none}.panel.active{display:block}.footer{text-align:center;color:var(--humo);font-size:.78rem;margin-top:18px}@media(max-width:800px){.toolbar{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}}@media(max-width:500px){.stats{grid-template-columns:1fr}.shell{padding:0 10px 30px}}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% -10%,rgba(200,39,45,.18),transparent 55%),radial-gradient(ellipse at 90% 100%,rgba(212,169,78,.06),transparent 50%),var(--carbon);color:var(--crema);font-family:'Barlow',sans-serif}
+.shell{max-width:1480px;margin:auto;padding:0 16px 40px}
+.hero{padding:48px 20px 28px;text-align:center;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;left:-10%;right:-10%;top:22px;height:9px;background:var(--rojo);transform:rotate(-2deg)}
+.hero:after{content:"";position:absolute;left:-10%;right:-10%;top:38px;height:3px;background:var(--dorado);transform:rotate(-2deg)}
+.eyebrow{font-family:'Staatliches';color:var(--dorado);letter-spacing:.28em;font-size:.9rem;text-transform:uppercase}
+.hero h1{font-family:'Staatliches';font-weight:400;font-size:clamp(2.4rem,7vw,4.2rem);letter-spacing:.03em;line-height:.95;margin:12px 0 8px}
+.hero p{color:var(--humo);margin:0}
+.card{background:var(--carbon2);border:1px solid var(--linea);border-top:4px solid var(--rojo);margin-top:14px}
+.card-title{font-family:'Staatliches';font-size:1.18rem;letter-spacing:.12em;color:var(--dorado);padding:15px 18px;border-bottom:1px solid var(--linea);display:flex;align-items:center;gap:10px}
+.card-title:before{content:"";width:5px;height:24px;background:var(--rojo)}
+.card-body{padding:18px}
+input,select{width:100%;border:1px solid var(--linea);background:var(--carbon);color:var(--crema);padding:12px;outline:none;border-radius:0;font-size:16px}
+input:focus,select:focus{border-color:var(--dorado)}
+.btn{border:0;background:linear-gradient(160deg,var(--rojo),var(--rojoOsc));color:#fff;border-bottom:4px solid var(--dorado);font-family:'Staatliches';font-size:1.02rem;letter-spacing:.08em;padding:12px 16px;cursor:pointer;white-space:nowrap}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.btn-outline{background:var(--carbon);border:1px solid var(--linea);border-bottom:1px solid var(--linea);color:var(--doradoSuave)}
+.btn-ok{background:rgba(76,175,125,.16);border:1px solid rgba(76,175,125,.45);border-bottom:1px solid rgba(76,175,125,.45);color:#a8e7c2;padding:8px 10px;font-size:.9rem}
+.btn-danger{background:rgba(224,82,82,.12);border:1px solid rgba(224,82,82,.45);border-bottom:1px solid rgba(224,82,82,.45);color:#ffb1b1;padding:8px 10px;font-size:.9rem}
+.toolbar{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:center}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+.stat{border:1px solid var(--linea);background:var(--carbon);padding:14px}
+.stat strong{font-family:'Staatliches';color:var(--doradoSuave);font-size:1.8rem;display:block;line-height:1}
+.stat span{display:block;color:var(--humo);font-size:.78rem;margin-top:6px;text-transform:uppercase;font-weight:800;letter-spacing:.05em}
+.table-wrap{overflow:auto;margin-top:14px;border:1px solid var(--linea)}
+table{width:100%;border-collapse:collapse;min-width:1250px}
+th{background:var(--carbon);color:var(--doradoSuave);text-transform:uppercase;font-size:.72rem;padding:11px;border-bottom:2px solid var(--dorado);text-align:left}
+td{padding:11px;border-bottom:1px solid var(--linea);font-size:.9rem;vertical-align:middle}
+tr:hover td{background:rgba(212,169,78,.025)}
+a{color:var(--doradoSuave);font-weight:700}
+.tag{display:inline-block;border:1px solid var(--linea);padding:4px 7px;margin:2px 3px 2px 0;color:var(--doradoSuave);background:var(--carbon3);font-size:.8rem}
+.tag-ok{color:#a8e7c2;border-color:rgba(76,175,125,.45)}
+.code{font-family:monospace;color:var(--doradoSuave)}
+.empty{text-align:center;color:var(--humo);padding:28px}
+.session{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:14px;color:var(--humo);font-size:.84rem}
+.status{margin-top:12px;padding:12px;border:1px solid var(--linea);display:none}
+.status.ok{display:block;color:#a8e7c2;border-color:rgba(76,175,125,.35);background:rgba(76,175,125,.08)}
+.status.err{display:block;color:#ffb1b1;border-color:rgba(224,82,82,.35);background:rgba(224,82,82,.08)}
+.status.info{display:block;color:var(--doradoSuave);background:rgba(212,169,78,.06)}
+.estado-box{display:flex;gap:7px;align-items:center;min-width:240px}
+.estado-box select{padding:8px;font-size:.86rem;min-width:130px}
+.actions{display:flex;gap:7px;align-items:center}
+.footer{text-align:center;color:var(--humo);font-size:.78rem;margin-top:18px}
+@media(max-width:800px){.toolbar{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.stats{grid-template-columns:1fr}.shell{padding:0 10px 30px}}
 </style>
 </head>
 <body>
 <div class="shell">
-<header class="hero"><div class="eyebrow">Dirección Nacional de Bomberos</div><h1>Panel de administración</h1><p>Pedidos de camisetas · Copa Integración 2026</p></header>
-<section id="adminPanel" class="panel active">
-<div class="card">
-<div class="card-title">Pedidos recibidos</div>
-<div class="card-body">
-<div class="toolbar">
-<input id="search" type="search" placeholder="Buscar por nombre, apellido o código">
-<button id="refreshBtn" class="btn btn-outline" type="button">Actualizar</button>
+<header class="hero">
+  <div class="eyebrow">Dirección Nacional de Bomberos</div>
+  <h1>Panel de administración</h1>
+  <p>Pedidos de camisetas · Copa Integración 2026</p>
+</header>
 
-</div>
-<div class="session"><span>Acceso libre</span><span id="lastUpdate">—</span></div>
-<div id="stats" class="stats"></div>
-<div id="panelStatus" class="status"></div>
-<div class="table-wrap">
-<table>
-<thead><tr><th>Fecha</th><th>Código</th><th>Nombre</th><th>Talles</th><th>Total</th><th>Estado</th><th>Comprobante</th><th>Carpeta</th></tr></thead>
-<tbody id="tbody"></tbody>
-</table>
-<div id="empty" class="empty" style="display:none">No hay pedidos para mostrar.</div>
-</div>
-</div>
-</div>
+<section class="card">
+  <div class="card-title">Pedidos recibidos</div>
+  <div class="card-body">
+    <div class="toolbar">
+      <input id="search" type="search" placeholder="Buscar por nombre, apellido o código">
+      <button id="refreshBtn" class="btn btn-outline" type="button">Actualizar</button>
+      <button id="excelBtn" class="btn" type="button">Descargar Excel</button>
+    </div>
+
+    <div class="session">
+      <span>Acceso libre</span>
+      <span id="lastUpdate">—</span>
+    </div>
+
+    <div id="stats" class="stats"></div>
+    <div id="panelStatus" class="status"></div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Talles</th>
+            <th>Total</th>
+            <th>Estado</th>
+            <th>Comprobante</th>
+            <th>Carpeta</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+      <div id="empty" class="empty" style="display:none">No hay pedidos para mostrar.</div>
+    </div>
+  </div>
 </section>
+
 <div class="footer">Copa Integración · Bomberos Uruguay · 2026</div>
 </div>
 
@@ -46,7 +113,7 @@ const $=id=>document.getElementById(id);
 let pedidos=[];
 
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
-function setStatus(id,msg,type=''){const el=$(id);if(!el)return;el.className='status'+(type?' '+type:'');el.textContent=msg||''}
+function setStatus(msg,type=''){const el=$('panelStatus');el.className='status'+(type?' '+type:'');el.textContent=msg||''}
 
 async function post(payload){
   const r=await fetch(API_URL,{
@@ -61,21 +128,22 @@ async function post(payload){
 }
 
 async function loadPedidos(){
-  setStatus('panelStatus','Cargando pedidos...');
+  setStatus('Cargando pedidos...','info');
   try{
     const d=await post({accion:'listar_pedidos'});
     pedidos=Array.isArray(d.pedidos)?d.pedidos:[];
     render();
-    setStatus('panelStatus','');
+    setStatus('');
     $('lastUpdate').textContent='Actualizado: '+new Date().toLocaleString('es-UY');
   }catch(err){
-    setStatus('panelStatus',err.message,'err');
+    setStatus(err.message,'err');
   }
 }
 
 function render(){
   const q=$('search').value.trim().toLowerCase();
   const rows=pedidos.filter(r=>`${r.codigo||''} ${r.nombre||''} ${r.apellido||''}`.toLowerCase().includes(q));
+
   const totalPedidos=pedidos.length;
   const totalCamisetas=pedidos.reduce((s,r)=>s+Number(r.total||0),0);
   const talles={};
@@ -83,28 +151,109 @@ function render(){
   const top=Object.entries(talles).sort((a,b)=>b[1]-a[1])[0];
 
   $('stats').innerHTML=
-  `<div class="stat"><strong>${totalPedidos}</strong><span>Pedidos</span></div>
-   <div class="stat"><strong>${totalCamisetas}</strong><span>Camisetas</span></div>
-   <div class="stat"><strong>${Object.keys(talles).length}</strong><span>Talles usados</span></div>
-   <div class="stat"><strong>${top?esc(top[0])+' · '+top[1]:'—'}</strong><span>Talle más pedido</span></div>`;
+    `<div class="stat"><strong>${totalPedidos}</strong><span>Pedidos</span></div>
+     <div class="stat"><strong>${totalCamisetas}</strong><span>Camisetas</span></div>
+     <div class="stat"><strong>${Object.keys(talles).length}</strong><span>Talles usados</span></div>
+     <div class="stat"><strong>${top?esc(top[0])+' · '+top[1]:'—'}</strong><span>Talle más pedido</span></div>`;
 
-  $('tbody').innerHTML=rows.map(r=>`
-  <tr>
-    <td>${esc(r.fecha)}</td>
-    <td class="code">${esc(r.codigo)}</td>
-    <td><strong>${esc(r.nombre)} ${esc(r.apellido)}</strong></td>
-    <td>${(r.items||[]).map(i=>`<span class="tag">${esc(i.talle)} × ${Number(i.cantidad||0)}</span>`).join('')||'—'}</td>
-    <td><strong>${Number(r.total||0)}</strong></td>
-    <td><span class="tag">${esc(r.estado||'PENDIENTE')}</span></td>
-    <td>${r.comprobanteUrl?`<a href="${esc(r.comprobanteUrl)}" target="_blank" rel="noopener">Ver comprobante</a>`:'—'}</td>
-    <td>${r.carpetaUrl?`<a href="${esc(r.carpetaUrl)}" target="_blank" rel="noopener">Abrir carpeta</a>`:'—'}</td>
-  </tr>`).join('');
+  $('tbody').innerHTML=rows.map(r=>{
+    const estado=(r.estado||'PENDIENTE').toUpperCase();
+    return `
+    <tr>
+      <td>${esc(r.fecha)}</td>
+      <td class="code">${esc(r.codigo)}</td>
+      <td><strong>${esc(r.nombre)} ${esc(r.apellido)}</strong></td>
+      <td>${(r.items||[]).map(i=>`<span class="tag">${esc(i.talle)} × ${Number(i.cantidad||0)}</span>`).join('')||'—'}</td>
+      <td><strong>${Number(r.total||0)}</strong></td>
+      <td>
+        <div class="estado-box">
+          <select id="estado-${esc(r.codigo)}">
+            <option value="PENDIENTE" ${estado==='PENDIENTE'?'selected':''}>Pendiente</option>
+            <option value="VERIFICADO" ${estado==='VERIFICADO'?'selected':''}>Verificado</option>
+          </select>
+          <button class="btn btn-ok" type="button" onclick="guardarEstado('${esc(r.codigo)}')">Guardar</button>
+        </div>
+      </td>
+      <td>${r.comprobanteUrl?`<a href="${esc(r.comprobanteUrl)}" target="_blank" rel="noopener">Ver comprobante</a>`:'—'}</td>
+      <td>${r.carpetaUrl?`<a href="${esc(r.carpetaUrl)}" target="_blank" rel="noopener">Abrir carpeta</a>`:'—'}</td>
+      <td>
+        <div class="actions">
+          <button class="btn btn-danger" type="button" onclick="eliminarPedido('${esc(r.codigo)}','${esc((r.nombre||'')+' '+(r.apellido||''))}')">Eliminar</button>
+        </div>
+      </td>
+    </tr>`;
+  }).join('');
 
   $('empty').style.display=rows.length?'none':'block';
 }
 
+async function guardarEstado(codigo){
+  const select=$('estado-'+codigo);
+  if(!select)return;
+  const estado=select.value;
+  setStatus('Guardando estado...','info');
+  try{
+    await post({accion:'actualizar_estado',codigo,estado});
+    const p=pedidos.find(x=>x.codigo===codigo);
+    if(p)p.estado=estado;
+    setStatus('Estado actualizado correctamente.','ok');
+    render();
+  }catch(err){
+    setStatus(err.message,'err');
+  }
+}
+
+async function eliminarPedido(codigo,nombre){
+  const ok=confirm(`¿Eliminar el pedido ${codigo} de ${nombre}?\n\nSe eliminará el registro de la planilla. La carpeta y el comprobante de Drive se conservarán.`);
+  if(!ok)return;
+
+  setStatus('Eliminando pedido...','info');
+  try{
+    await post({accion:'eliminar_pedido',codigo});
+    pedidos=pedidos.filter(x=>x.codigo!==codigo);
+    render();
+    setStatus('Pedido eliminado correctamente.','ok');
+  }catch(err){
+    setStatus(err.message,'err');
+  }
+}
+
+function base64ToBlob(base64,mime){
+  const bin=atob(base64);
+  const bytes=new Uint8Array(bin.length);
+  for(let i=0;i<bin.length;i++)bytes[i]=bin.charCodeAt(i);
+  return new Blob([bytes],{type:mime});
+}
+
+async function descargarExcel(){
+  const b=$('excelBtn');
+  b.disabled=true;
+  b.textContent='GENERANDO...';
+  setStatus('Generando archivo Excel...','info');
+
+  try{
+    const d=await post({accion:'descargar_excel'});
+    const blob=base64ToBlob(d.base64,d.mime||'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.href=url;
+    a.download=d.nombre||'Pedidos Camisetas 2026.xlsx';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),2000);
+    setStatus('Excel descargado correctamente.','ok');
+  }catch(err){
+    setStatus(err.message,'err');
+  }finally{
+    b.disabled=false;
+    b.textContent='DESCARGAR EXCEL';
+  }
+}
+
 $('search').addEventListener('input',render);
 $('refreshBtn').addEventListener('click',loadPedidos);
+$('excelBtn').addEventListener('click',descargarExcel);
 loadPedidos();
 </script>
 </body>
