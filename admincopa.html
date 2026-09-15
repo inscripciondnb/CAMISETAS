@@ -53,15 +53,37 @@ function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&l
 function setStatus(id,msg,type=''){const el=$(id);if(!el)return;el.className='status'+(type?' '+type:'');el.textContent=msg||''}
 
 async function post(payload){
-  const r=await fetch(API_URL,{
+  const res=await fetch(API_URL,{
     method:'POST',
     headers:{'Content-Type':'text/plain;charset=utf-8'},
     body:JSON.stringify(payload),
-    cache:'no-store'
+    redirect:'follow'
   });
-  const d=await r.json();
-  if(!d.ok)throw new Error(d.error||'Error del servidor');
-  return d;
+
+  const raw=await res.text();
+  const trimmed=raw.trim();
+
+  if(!trimmed){
+    throw new Error('El servidor respondió vacío. Verificá la implementación de Apps Script.');
+  }
+
+  if(trimmed.startsWith('<!DOCTYPE') || trimmed.startsWith('<html') || trimmed.startsWith('<HTML')){
+    throw new Error(
+      'Apps Script devolvió una página HTML en lugar de datos. '+
+      'Revisá que la implementación sea una Aplicación web, que el acceso esté configurado para Cualquier persona '+
+      'y que el admin use la URL /exec de la última implementación.'
+    );
+  }
+
+  let data;
+  try{
+    data=JSON.parse(trimmed);
+  }catch(e){
+    throw new Error('Respuesta no válida del servidor: '+trimmed.slice(0,180));
+  }
+
+  if(!data.ok) throw new Error(data.error||'Error del servidor');
+  return data;
 }
 
 async function loadPedidos(){
